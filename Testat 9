@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define MAX 30
+#pragma warning(disable:4996)
+
+struct adres {
+	char vname[MAX];
+	char nname[MAX];
+	long matr;
+	char adresse[MAX];
+	int kurse;
+} adressen[100];
+
+void Ausgabe(struct adres all[], int nr) {
+	int i;
+
+	for (i = 0; i < nr; i++) {
+		printf("%s\t", all[i].vname);
+		printf("%s\t", all[i].nname);
+		printf("%ld\t", all[i].matr);
+		printf("%s\t", all[i].adresse);
+		printf("%d\n\n", all[i].kurse);
+
+
+		}
+
+}
+
+int main(void) {
+
+	int i;
+
+	strcpy(adressen[0].vname, "Anna");
+	strcpy(adressen[0].nname, "Musterfrau");
+	adressen[0].matr = 22222;
+	strcpy(adressen[0].adresse, "Am Schwarzenberg-Campus 3");
+	adressen[0].kurse = 4;
+
+
+	strcpy(adressen[1].vname, "Hans");
+	strcpy(adressen[1].nname, "Peter");
+	adressen[1].matr = 44444;
+	strcpy(adressen[1].adresse, "Kasernenstrasse 12");
+	adressen[1].kurse = 2;
+
+
+	strcpy(adressen[2].vname, "Lisa");
+	strcpy(adressen[2].nname, "Lustig");
+	adressen[2].matr = 66666;
+	strcpy(adressen[2].adresse, "Denickestrasse 15");
+	adressen[2].kurse = 8;
+
+        Ausgabe(adressen, 3);
+
+    strcpy(adressen[3].vname, adressen[0].vname);
+	strcpy(adressen[3].nname, adressen[0].nname);
+	adressen[3].matr = adressen[0].matr;
+	strcpy(adressen[3].adresse,adressen[0].adresse);
+	adressen[3].kurse = adressen[0].kurse;
+
+
+	 strcpy(adressen[0].vname, adressen[2].vname);
+	strcpy(adressen[0].nname, adressen[2].nname);
+	adressen[0].matr = adressen[2].matr;
+	strcpy(adressen[0].adresse,adressen[2].adresse);
+	adressen[0].kurse = adressen[2].kurse;
+
+	 strcpy(adressen[2].vname, adressen[3].vname);
+	strcpy(adressen[2].nname, adressen[3].nname);
+	adressen[2].matr = adressen[3].matr;
+	strcpy(adressen[2].adresse,adressen[3].adresse);
+	adressen[2].kurse = adressen[3].kurse;
+
+        Ausgabe(adressen, 3);
+
+
+
+
+}
